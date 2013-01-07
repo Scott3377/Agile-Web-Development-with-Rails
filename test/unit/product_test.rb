@@ -70,3 +70,20 @@ test "product is not valid without a unique title - i18n" do
   assert !product.save
   assert_equal I18n.translate('activerecord.errors.messages.taken'), product.errors[:title].join('; ')
 end
+
+# test "product title must be at least 10 characters long" do
+#   product = Product.new(description:   "yyy",
+#                         price:          1,
+#                         image_url:      "fred.gif")
+#   product.title = "123456789"
+#   assert product.title[:length] >= 10
+#   assert_equal "must be at least 10 characters long", product.errors[:title].join('; ')
+
+#   product.title = "1234567890"
+#   assert product.title[:length] >= 10
+#   assert_equal "must be at least 10 characters long", product.errors[:title].join('; ')
+
+#   product.title = "1234567891011"
+#   assert product.title[:length] >= 10
+#   assert_equal "must be at least 10 characters long", product.errors[:title].join('; ')
+# end
